@@ -9,6 +9,7 @@ import Testimonials from '../components/Testimonials'
 
 export const HomePageTemplate = ({
   title,
+  subtitle,
   heading,
   description,
   offerings,
@@ -27,9 +28,12 @@ export const HomePageTemplate = ({
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
               <div className='section'>
-                <h1 className='title'>
+                <h1 className='title is-spaced'>
                   {title}
-                </h1>
+                  </h1>
+                  <h2 className='subtitle'>
+                    {subtitle}
+                  </h2>
               </div>
             </div>
           </div>
@@ -80,6 +84,7 @@ const HomePage = ({data}) => {
   return (
     <HomePageTemplate
       title={frontmatter.title}
+      subtitle={frontmatter.subtitle}
       meta_title={frontmatter.meta_title}
       meta_description={frontmatter.meta_description}
       heading={frontmatter.heading}
@@ -105,6 +110,7 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
+        subtitle
         meta_title
         meta_description
         heading
